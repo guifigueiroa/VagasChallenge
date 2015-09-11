@@ -10,52 +10,76 @@ public class QuestionsInput {
 	private IntergalacticUnit unit = new IntergalacticUnit();
 	private Map<String, Metal> metals = new HashMap<String, Metal>();
 	
+	/**
+	 * Get answer according to question input
+	 * @param input Question Input
+	 * @return Answer
+	 */
 	public String getAnswer(String input){
-		String answer = "";
-		
 		QuestionRegex regex = new QuestionRegex(input);
 		Matcher m = regex.compile();
 		
-		String intergalacticUnit;
-		String metalName;
-		Metal metal;
-		int credits;
-		
 		switch(regex.getType()){
 		case 0:
-			intergalacticUnit = m.group(1);
-			metalName = m.group(2);
-			credits = Integer.parseInt(m.group(3));
-			
-			metal = new Metal(unit, intergalacticUnit, credits);
-			metals.put(metalName, metal);
-			break;
+			addNewMetal(m.group(2), m.group(1), Integer.parseInt(m.group(3)));
+			return null;
 			
 		case 1:
-			intergalacticUnit = m.group(1);
-			int value = unit.convertToArabic(intergalacticUnit);
-			
-			answer = intergalacticUnit + " is " + value;
-			break;
+			return intergalacticUnitToArabic(m.group(1));
 			
 		case 2:
-			intergalacticUnit = m.group(1);
-			metalName = m.group(2);
-			metal = metals.get(metalName);
-			credits = (int) metal.calculateCredits(unit, intergalacticUnit);
-			
-			answer = intergalacticUnit + " " + metalName + " is " + credits + " Credits";
-			break;
+			return metalToCredits(m.group(1), m.group(2));
 			
 		case 3:
-			unit.addNumeral(m.group(1), m.group(2));
-			break;
+			addIntergalacticNumeral(m.group(1), m.group(2));
+			return null;
 			
-		case 4:
-			answer = "I have no idea what you are talking about";
-			break;
+		default:
+			return "I have no idea what you are talking about";
 		}
+	}
+	
+	/**
+	 * Add new intergalactic numeral to the unit
+	 * @param intergalacticUnit Intergalactic numeral
+	 * @param romanNumeral Equivalent in Roman Numeral
+	 */
+	private void addIntergalacticNumeral(String intergalacticUnit, String romanNumeral){
+		unit.addNumeral(intergalacticUnit, romanNumeral);
+	}
+	
+	/**
+	 * Add new metal to list
+	 * @param metalName Name of the metal
+	 * @param intergalacticUnit Quantity in the intergalactic unit
+	 * @param credits Quantity of credits equivalent
+	 */
+	private void addNewMetal(String metalName, String intergalacticUnit, int credits){
+		Metal metal = new Metal(unit, intergalacticUnit, credits);
+		metals.put(metalName, metal);
+	}
+	
+	/**
+	 * Converts intergalactic unit to arabic
+	 * @param intergalacticUnit Intergalactic numeral
+	 * @return Arabic number
+	 */
+	private String intergalacticUnitToArabic(String intergalacticUnit){
+		int value = unit.convertToArabic(intergalacticUnit);
 		
-		return answer;
+		return intergalacticUnit + " is " + value;
+	}
+	
+	/**
+	 * Converts from metal quantity to credits
+	 * @param intergalacticUnit Quantity in the intergalactic unit
+	 * @param metalName Metal name
+	 * @return Quantity of credits
+	 */
+	private String metalToCredits(String intergalacticUnit, String metalName){
+		Metal metal = metals.get(metalName);
+		int credits = (int) metal.calculateCredits(unit, intergalacticUnit);
+		
+		return intergalacticUnit + " " + metalName + " is " + credits + " Credits";
 	}
 }

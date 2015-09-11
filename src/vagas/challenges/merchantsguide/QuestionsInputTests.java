@@ -10,13 +10,13 @@ public class QuestionsInputTests {
 	public void testOutputs() {
 		QuestionsInput q = new QuestionsInput();
 		
-		assertEquals(q.getAnswer("glob is I"), "");
-		assertEquals(q.getAnswer("prok is V"), "");
-		assertEquals(q.getAnswer("pish is X"), "");
-		assertEquals(q.getAnswer("tegj is L"), "");
-		assertEquals(q.getAnswer("glob glob Silver is 34 Credits"), "");
-		assertEquals(q.getAnswer("glob prok Gold is 57800 Credits"), "");
-		assertEquals(q.getAnswer("pish pish Iron is 3910 Credits"), "");
+		assertNull(q.getAnswer("glob is I"));
+		assertNull(q.getAnswer("prok is V"));
+		assertNull(q.getAnswer("pish is X"));
+		assertNull(q.getAnswer("tegj is L"));
+		assertNull(q.getAnswer("glob glob Silver is 34 Credits"));
+		assertNull(q.getAnswer("glob prok Gold is 57800 Credits"));
+		assertNull(q.getAnswer("pish pish Iron is 3910 Credits"));
 		assertEquals(q.getAnswer("how much is pish tegj glob glob ?"), 
 				"pish tegj glob glob is 42");
 		assertEquals(q.getAnswer("how many Credits is glob prok Silver ?"), 

@@ -13,6 +13,11 @@ public class QuestionRegex {
 	private String regex;
 	private int type;
 	
+	/**
+	 * Constructor for question regular expressions
+	 * 
+	 * @param question Question input
+	 */
 	public QuestionRegex(String question){
 		this.question = question;
 		if(Pattern.matches(REGEX_PATTERN1, question)){
@@ -32,10 +37,18 @@ public class QuestionRegex {
 		}
 	}
 	
+	/**
+	 * Returns the type of the question
+	 * @return Type of the question
+	 */
 	public int getType(){
 		return this.type;
 	}
 	
+	/**
+	 * Compile the question using the regular expression
+	 * @return Matcher with groups of substrings found
+	 */
 	public Matcher compile(){
 		if(type == 4) return null;
 		
