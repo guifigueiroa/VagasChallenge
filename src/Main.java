@@ -1,9 +1,12 @@
-package vagas.challenges.merchantsguide;
-
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.util.Scanner;
 
+/**
+ * 
+ * @author Guilherme M. Figueiroa
+ *
+ */
 public class Main {
 
 	public static void main(String args[]) {
@@ -14,7 +17,7 @@ public class Main {
 				String input = in.nextLine();
 				String output = q.getAnswer(input);
 				
-				if(!output.isEmpty()){
+				if(output != null){
 					System.out.println(output);
 				}
 			}

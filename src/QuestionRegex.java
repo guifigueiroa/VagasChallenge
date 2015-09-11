@@ -1,8 +1,11 @@
-package vagas.challenges.merchantsguide;
-
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+/**
+ * 
+ * @author Guilherme M. Figueiroa
+ *
+ */
 public class QuestionRegex {
 
 	private static final String REGEX_PATTERN1 = "(.*)\\s(.*)\\sis\\s(.*)\\sCredits$";

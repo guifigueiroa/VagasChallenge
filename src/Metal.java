@@ -1,5 +1,8 @@
-package vagas.challenges.merchantsguide;
-
+/**
+ * 
+ * @author Guilherme M. Figueiroa
+ *
+ */
 public class Metal {
 	
 	private int value;

@@ -1,9 +1,12 @@
-package vagas.challenges.merchantsguide;
-
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
+/**
+ * 
+ * @author Guilherme M. Figueiroa
+ *
+ */
 public class QuestionsInputTests {
 
 	@Test

@@ -1,10 +1,13 @@
-package vagas.challenges.merchantsguide;
-
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * 
+ * @author Guilherme M. Figueiroa
+ *
+ */
 public class IntergalacticUnitAndMetalTests {
 
 	IntergalacticUnit unit;

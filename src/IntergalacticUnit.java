@@ -1,8 +1,11 @@
-package vagas.challenges.merchantsguide;
-
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * 
+ * @author Guilherme M. Figueiroa
+ *
+ */
 public class IntergalacticUnit {
 
 	private Map<String, String> numerals = 

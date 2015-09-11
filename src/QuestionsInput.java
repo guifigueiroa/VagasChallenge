@@ -1,9 +1,12 @@
-package vagas.challenges.merchantsguide;
-
 import java.util.HashMap;
 import java.util.Map;
 import java.util.regex.Matcher;
 
+/**
+ * 
+ * @author Guilherme M. Figueiroa
+ *
+ */
 public class QuestionsInput {
 
 	

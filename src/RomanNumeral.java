@@ -1,9 +1,12 @@
-package vagas.challenges.merchantsguide;
-
 import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ * 
+ * @author Guilherme M. Figueiroa
+ *
+ */
 public class RomanNumeral {
 
 	/**
